@@ -1,4 +1,5 @@
 import requests
+import os
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -8,8 +9,8 @@ from .models import Greeting
 
 
 def index(request):
-    r = requests.get('https://httpbin.org/status/418', timeout=10)
-    return HttpResponse('<pre>' + r.text + '</pre>')
+    times = int(os.environ.get('TIMES', 3))
+    return HttpResponse('Hello! ' * times)
 
 
 def db(request):
