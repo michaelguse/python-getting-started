@@ -9,7 +9,7 @@ from .models import Greeting
 
 
 def index(request):
-    times = int(os.environ.get('TIMES', 3))
+    times = int(os.environ.get('TIMES', 4))
     return HttpResponse('Hello! ' * times)
 
 
